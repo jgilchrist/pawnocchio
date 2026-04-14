@@ -183,7 +183,7 @@ pub fn build(b: *std.Build) !void {
     const link_mode = b.option(std.builtin.LinkMode, "link_mode", "set linkage mode");
     const emit_symbols = b.option(bool, "emit_symbols", "keep debug symbols") orelse false;
     const use_tbs = b.option(bool, "use_tbs", "enable tablebases") orelse true;
-    const use_numa = b.option(bool, "use_numa", "link to libnuma for NUMA aware resource management") orelse false;
+    const use_numa = b.option(bool, "use_numa", "link to libnuma for NUMA aware resource management") orelse true;
     const tools_only = b.option(bool, "tools_only", "disable UCI, datagen, bench, and genfens to minimize tool binaries") orelse false;
     if (use_numa and target.result.os.tag != .linux) {
         std.log.err("build cannot use numa on non linux targets\n", .{});
